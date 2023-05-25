@@ -29,6 +29,10 @@ h6 {
     list-style: none;
     font-weight: 300;
 }
+
+img{
+    cursor: pointer;
+}
 /*Thème */
 
 :root {
