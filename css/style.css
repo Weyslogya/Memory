@@ -71,8 +71,12 @@ main{
     border-radius: 2rem;
 }
 
+main.noir{
+    background-color: black;
+}
+
 h2{
-    background-color: var(--color-main-);
+    background-color: var(--color-header-);
     text-align: center;
     margin: 1rem auto;
     max-width: 80rem;
@@ -89,6 +93,7 @@ h2{
     height: 70rem;
     perspective: 1000px;
 }
+
 
 .carte{
     width: calc(25% - 10px);
@@ -111,6 +116,10 @@ h2{
     border-radius: 2rem;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+}
+
+*.noir{
+    background-color: #000;
 }
 
 .verso{

@@ -1,5 +1,8 @@
 const play = document.querySelector(".start");
 const cartes = document.querySelectorAll(".carte");
+const filtres = document.querySelectorAll(".noir");
+
+let limiteCarte = false;
 
 function melange() {
   cartes.forEach((carte) => {
@@ -9,16 +12,22 @@ function melange() {
 }
 
 function resetJeu() {
+  filtres.forEach((filtre) => filtre.classList.remove("noir"));
   cartes.forEach((carte) => carte.classList.remove("flip"));
+  limiteCarte = false;
+  carteUne = null;
+  carteDeux = null;
 }
 
 function game() {
   
   resetJeu();
-  melange();
-  
+  setTimeout (() =>{ 
+    melange()
+  },0800);
+
   let carteUne, carteDeux;
-  let limiteCarte = false;
+  limiteCarte = false;
 
   function resetCarte() {
     if (carteDeux) {
