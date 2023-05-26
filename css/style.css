@@ -36,13 +36,13 @@ img{
 /*Thème */
 
 :root {
-    --color-header-: #d81919;
-    --color-main-: #cab70d;
-    --color-background: #eb9412;
+    --color-header-: #135299;
+    --color-main-: #d3741b;
+    --color-background: #c23e2c;
 }
 
 body {
-    background-color: #cab70d;
+    background-color: var(--color-main-);
     line-height: 1.6;
     letter-spacing: 0.1rem;
 }
