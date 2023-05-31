@@ -1,6 +1,21 @@
+const modal = document.querySelector(".modal")
 const play = document.querySelector(".start");
 const cartes = document.querySelectorAll(".carte");
 const filtres = document.querySelectorAll(".noir");
+
+console.log(modal)
+
+function openModal() {
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  modal.style.display = "none";
+}
+
+function timer() {
+  
+}
 
 let limiteCarte = false;
 
@@ -20,11 +35,11 @@ function resetJeu() {
 }
 
 function game() {
-  
+  closeModal();
   resetJeu();
-  setTimeout (() =>{ 
-    melange()
-  },0800);
+  setTimeout(() => {
+    melange();
+  }, 0800);
 
   let carteUne, carteDeux;
   limiteCarte = false;
@@ -80,7 +95,3 @@ function game() {
   cartes.forEach((carte) => carte.addEventListener("click", flipCarte));
 }
 play.addEventListener("click", game);
-
-/*  Faire une fonction bloquant plus de 2 carte
-    Faire une fonction pour le bouton jouer
-    Faire une fonction pour mélanger les cartes*/

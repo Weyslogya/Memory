@@ -24,8 +24,15 @@
         </h1>
     </header>
     <main class="noir">
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <h2>Règles</h2>
+                <p>Trouvez toutes les paires de cartes pour gagner la partie !</p>
+                <button class="start">Jouer</button>
+            </div>
+        </div>
         <h2> Retrouve toutes les paires de cartes !</h2>
-        <section id="Game">
+        <div id="Game">
             <div class="carte" data-paire="Bleach">
                 <img class="verso" src="./asset/Bleach.png" alt="Bleach">
                 <img class="recto noir" src="./asset/Mystery.png" alt="Mystère">
@@ -80,7 +87,7 @@
             </div>
             <div class="carte" data-paire="Dragonball">
                 <img class="verso" src="./asset/Dragon_ball.png" alt="Dragon ball">
-                 <img class="recto noir" src="./asset/Mystery.png" alt="Mystère">
+                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère">
             </div>
             <div class="carte" data-paire="Dgrayman">
                 <img class="verso" src="./asset/Dgm.png" alt="D.gray-man">
@@ -90,8 +97,14 @@
                 <img class="verso" src="./asset/Bleach.png" alt="Bleach">
                 <img class="recto noir" src="./asset/Mystery.png" alt="Mystère">
             </div>
+        </div>
+        <div class="timer">
+            <p>Temps:<br> 0</p>
+        </div>
+        <div class="moves">
+            <p>Mouvements:<br> 0</p>
+        </div>
         </section>
-        <button class="start">Jouer</button>
     </main>
     <footer>
 
