@@ -99,4 +99,4 @@ function game() {
   cartes.forEach((carte) => carte.addEventListener("click", flipCarte));
 }
 play.addEventListener("click", game);
-window.addEventListener('scroll', openModal);
+window.addEventListener('DOMContentLoaded', openModal);
