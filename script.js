@@ -1,20 +1,24 @@
-const modal = document.querySelector(".modal")
+const starting = document.querySelector(".starting");
+const ending = document.querySelector(".ending");
 const play = document.querySelector(".start");
 const cartes = document.querySelectorAll(".carte");
 const filtres = document.querySelectorAll(".noir");
 
-console.log(modal)
+console.log(starting)
 
 function openModal() {
-  modal.style.display = "block";
+  setTimeout(() =>{
+  starting.style.display = "block";
+  },500);
 }
 
 function closeModal() {
-  modal.style.display = "none";
+  window.removeEventListener('scroll', openModal);
+  starting.style.display = "none";
 }
 
 function timer() {
-  
+
 }
 
 let limiteCarte = false;
@@ -95,3 +99,4 @@ function game() {
   cartes.forEach((carte) => carte.addEventListener("click", flipCarte));
 }
 play.addEventListener("click", game);
+window.addEventListener('scroll', openModal);

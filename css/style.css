@@ -132,8 +132,8 @@ h2 {
     font-size: 3rem;
 }
 
-.modal{
-    display: block;
+.starting{
+    display: none;
     position: fixed;
     z-index: 1;
     align-items: center;
@@ -147,7 +147,7 @@ h2 {
     height: 15rem;
 }
 
-.modal-content{
+.starting-content{
     background-image: url(../asset/cover_popup.png);
     margin: 0 auto;
     border: 1px solid black;
@@ -155,7 +155,39 @@ h2 {
     height: 20rem;
 }
 
-.modal-content p{
+.starting-content p{
+    font-size: 2rem;
+    text-align: center;
+    color: var(--color-main-);
+    background-color: var(--color-header-);
+    border-radius: 2rem;
+    border: 1px solid black;
+}
+
+.ending{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    left: 0;
+    top: 45%;
+    right: 0;
+    bottom: 0;
+    width: 65rem;
+    height: 15rem;
+}
+
+.ending-content{
+    background-image: url(../asset/cover_popup.png);
+    margin: 0 auto;
+    border: 1px solid black;
+    width: 70rem;
+    height: 20rem;
+}
+
+.ending-content p{
     font-size: 2rem;
     text-align: center;
     color: var(--color-main-);
@@ -169,16 +201,16 @@ h2 {
     position: fixed;
     z-index: -1;
     margin: 0 auto;
-    left: 5rem;
+    left: 10rem;
     top: 20rem;
-    width: 12rem;
-    height: 6rem;
+    width: 16rem;
+    height: 8rem;
     border-radius: 3rem;
     background-color: var(--color-header-);
 }
 
 .timer p{
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-style: italic;
     text-align: center;
 }
@@ -188,15 +220,15 @@ h2 {
     position: fixed;
     z-index: -1;
     margin: 0 auto;
-    left: 5rem;
-    top: 28rem;
-    width: 12rem;
-    height: 6rem;
+    left: 10rem;
+    top: 30rem;
+    width: 16rem;
+    height: 8rem;
     border-radius: 3rem;
     background-color: var(--color-header-);
 }
 .moves p{
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-style: italic;
     text-align: center;
-}
+ } 
