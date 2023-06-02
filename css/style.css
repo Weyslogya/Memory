@@ -125,7 +125,7 @@ h2 {
 
 .start {
     display: block;
-    margin: 1rem auto;
+    margin: 0.5rem auto;
     height: 8rem;
     width: 16rem;
     background-color: var(--color-main-);
@@ -139,7 +139,7 @@ h2 {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    left: 0;
+    left: -4%;
     top: 45%;
     right: 0;
     bottom: 0;
@@ -150,7 +150,8 @@ h2 {
 .starting-content{
     background-image: url(../asset/cover_popup.png);
     margin: 0 auto;
-    border: 1px solid black;
+    border: 0.5rem solid silver;
+    border-radius: 2rem;
     width: 70rem;
     height: 20rem;
 }
@@ -171,7 +172,7 @@ h2 {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    left: 0;
+    left: -4%;
     top: 45%;
     right: 0;
     bottom: 0;
@@ -182,7 +183,8 @@ h2 {
 .ending-content{
     background-image: url(../asset/cover_popup.png);
     margin: 0 auto;
-    border: 1px solid black;
+    border: 0.5rem solid silver;
+    border-radius: 2rem;
     width: 70rem;
     height: 20rem;
 }
@@ -232,3 +234,114 @@ h2 {
     font-style: italic;
     text-align: center;
  } 
+
+ @media screen and (max-width:1520px){
+    .timer{
+        display: none;
+    }
+    .moves{
+        display: none;
+    }
+ }
+
+ @media screen and (max-width: 780px) {
+    .starting{
+        display: none;
+        position: fixed;
+        z-index: 1;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        left: -0%;
+        top: 45%;
+        right: 0;
+        bottom: 0;
+        width: 65rem;
+        height: 15rem;
+    }
+    
+    .starting-content{
+        background-image: url(../asset/cover_popup.png);
+        margin: 0 auto;
+        border: 0.5rem solid silver;
+        border-radius: 2rem;
+        width: 35rem;
+        height: 24rem;
+    }
+    
+    .ending{
+        display: none;
+        position: fixed;
+        z-index: 1;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        left: -0%;
+        top: 45%;
+        right: 0;
+        bottom: 0;
+        width: 65rem;
+        height: 15rem;
+    }
+    
+    .ending-content{
+        background-image: url(../asset/cover_popup.png);
+        margin: 0 auto;
+        border: 0.5rem solid silver;
+        border-radius: 2rem;
+        width: 35rem;
+        height: 24rem;
+    }
+    
+ }
+
+ @media screen and (max-width: 420px) {
+    .starting{
+        display: none;
+        position: fixed;
+        z-index: 1;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        left: -28%;
+        top: 45%;
+        right: 0;
+        bottom: 0;
+        width: 65rem;
+        height: 15rem;
+    }
+    
+    .starting-content{
+        background-image: url(../asset/cover_popup.png);
+        margin: 0 auto;
+        border: 0.5rem solid silver;
+        border-radius: 2rem;
+        width: 35rem;
+        height: 24rem;
+    }
+    
+    .ending{
+        display: none;
+        position: fixed;
+        z-index: 1;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        left: -0%;
+        top: 45%;
+        right: 0;
+        bottom: 0;
+        width: 65rem;
+        height: 15rem;
+    }
+    
+    .ending-content{
+        background-image: url(../asset/cover_popup.png);
+        margin: 0 auto;
+        border: 0.5rem solid silver;
+        border-radius: 2rem;
+        width: 35rem;
+        height: 24rem;
+    }
+    
+ }

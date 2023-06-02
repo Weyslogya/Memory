@@ -1,42 +1,77 @@
-const starting = document.querySelector(".starting");
-const ending = document.querySelector(".ending");
-const play = document.querySelector(".start");
-const cartes = document.querySelectorAll(".carte");
-const filtres = document.querySelectorAll(".noir");
+const STARTING = document.querySelector(".starting");
+const ENDING = document.querySelector(".ending");
+const PLAYS = document.querySelectorAll(".start");
+const CARTES = document.querySelectorAll(".carte");
+const FILTRES = document.querySelectorAll(".noir");
+const TIME = document.querySelector(".time");
+const CLICK = document.querySelector(".click");
 
-console.log(starting)
+/* Mise en place du chrono et du compteur de clique */
+
+let temps = 0;
+let clickCount = 0;
+let timer;
+
+TIME.innerHTML = temps;
+CLICK.innerHTML = clickCount;
+
+function timeUp() {
+  temps++;
+  TIME.innerHTML = temps;
+}
+
+function resetChrono() {
+  temps = 0;
+  TIME.innerHTML = temps;
+}
+
+function clickUp() {
+  clickCount++;
+  CLICK.innerHTML = clickCount;
+}
+
+/* Mise en place des pop-up d'ouverture et de fermeture du jeu */
 
 function openModal() {
-  setTimeout(() =>{
-  starting.style.display = "block";
-  },500);
+  setTimeout(() => {
+    STARTING.style.display = "block";
+  }, 500);
 }
 
 function closeModal() {
-  window.removeEventListener('scroll', openModal);
-  starting.style.display = "none";
+  window.removeEventListener("scroll", openModal);
+  STARTING.style.display = "none";
+  ENDING.style.display = "none";
 }
 
-function timer() {
-
-}
+/* Mise en place des fonction pré-requis du jeux */
 
 let limiteCarte = false;
 
 function melange() {
-  cartes.forEach((carte) => {
+  CARTES.forEach((carte) => {
     let aleatoire = Math.floor(Math.random() * 16);
     carte.style.order = aleatoire;
   });
 }
 
 function resetJeu() {
-  filtres.forEach((filtre) => filtre.classList.remove("noir"));
-  cartes.forEach((carte) => carte.classList.remove("flip"));
+  setTimeout(() => {
+    FILTRES.forEach((filtre) => filtre.classList.remove("noir"));
+  }, 500);
+  CARTES.forEach((carte) => carte.classList.remove("flip"));
   limiteCarte = false;
   carteUne = null;
   carteDeux = null;
+  clickCount = 0;
+  CLICK.innerHTML = clickCount;
+  resetChrono();
+  timer = setInterval(() => {
+    timeUp();
+  }, 1000);
 }
+
+/* Fonction du jeu */
 
 function game() {
   closeModal();
@@ -61,42 +96,50 @@ function game() {
     }
 
     const carte = event.target.closest(".carte");
-
-    let carteFlippée = carte.className.includes("flip");
-    if (carteFlippée) {
-      return;
-    }
-
+    carte.removeEventListener("click", flipCarte);
     carte.classList.add("flip");
 
     if (carteUne) {
       carteDeux = carte;
+      matching();
     } else {
       carteUne = carte;
     }
-    matching();
+
+    clickUp();
   }
 
   function matching() {
-    if (!carteDeux) {
-      return;
-    }
-
     if (carteUne.dataset.paire === carteDeux.dataset.paire) {
-      carteUne.removeEventListener("click", flipCarte);
-      carteDeux.removeEventListener("click", flipCarte);
       resetCarte();
     } else {
       limiteCarte = true;
       setTimeout(() => {
+        carteUne.addEventListener("click", flipCarte);
+        carteDeux.addEventListener("click", flipCarte);
         carteUne.classList.remove("flip");
         carteDeux.classList.remove("flip");
         resetCarte();
         limiteCarte = false;
       }, 1500);
     }
+    let finish = true;
+
+    for (let i = 0; i < CARTES.length; i++) {
+      if (!CARTES[i].classList.contains("flip")) {
+        finish = false;
+        break;
+      }
+    }
+
+    if (finish) {
+      setTimeout(() => {
+        ENDING.style.display = "block";
+      }, 800);
+      clearInterval(timer);
+    }
   }
-  cartes.forEach((carte) => carte.addEventListener("click", flipCarte));
+  CARTES.forEach((carte) => carte.addEventListener("click", flipCarte));
 }
-play.addEventListener("click", game);
-window.addEventListener('DOMContentLoaded', openModal);
+PLAYS.forEach((play) => play.addEventListener("click", game));
+window.addEventListener("DOMContentLoaded", openModal);

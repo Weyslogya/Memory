@@ -20,7 +20,7 @@
 <body>
     <header>
         <h1>
-            Memory Anime
+            Animory
         </h1>
     </header>
     <main class="noir">
@@ -34,89 +34,90 @@
         </div>
         <!-- Jeu de Memory -->
         <section>
-        <h2> Retrouve toutes les paires de cartes !</h2>
-        <div id="Game">
-            <div class="carte" data-paire="Bleach">
-                <img class="verso" src="./asset/Bleach.png" alt="Bleach" loading="lazy">
-                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+            <h2> Retrouve toutes les paires de cartes !</h2>
+            <div id="Game">
+                <div class="carte" data-paire="Dgrayman">
+                    <img class="verso" src="./asset/Dgm.png" alt="D.gray-man" loading="lazy">
+                    <img class="recto noir compte" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+                </div>
+                <div class="carte" data-paire="Bleach">
+                    <img class="verso" src="./asset/Bleach.png" alt="Bleach" loading="lazy">
+                    <img class="recto noir compte" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+                </div>
+                <div class="carte" data-paire="Bleach">
+                    <img class="verso" src="./asset/Bleach.png" alt="Bleach" loading="lazy">
+                    <img class="recto noir compte" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+                </div>
+                <div class="carte" data-paire="Dgrayman">
+                    <img class="verso " src="./asset/Dgm.png" alt="D.gray-man" loading="lazy">
+                    <img class="recto noir compte" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+                </div>
+                <div class="carte" data-paire="Dragonball">
+                    <img class="verso" src="./asset/Dragon_ball.png" alt="Dragon ball" loading="lazy">
+                    <img class="recto noir compte" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+                </div>
+                <div class="carte" data-paire="Dragonball">
+                    <img class="verso" src="./asset/Dragon_ball.png" alt="Dragon ball" loading="lazy">
+                    <img class="recto noir compte" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+                </div>
+                <div class="carte" data-paire="Demonslayer">
+                    <img class="verso" src="./asset/Kny.png" alt="Demon slayer" loading="lazy">
+                    <img class="recto noir compte" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+                </div>
+                <div class="carte" data-paire="Demonslayer">
+                    <img class="verso" src="./asset/Kny.png" alt="Demon slayer" loading="lazy">
+                    <img class="recto noir compte" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+                </div>
+                <div class="carte" data-paire="Magi">
+                    <img class="verso" src="./asset/Magi.png" alt="Magi" loading="lazy">
+                    <img class="recto noir compte" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+                </div>
+
+                <div class="carte" data-paire="Magi">
+                    <img class="verso" src="./asset/Magi.png" alt="Magi" loading="lazy">
+                    <img class="recto noir compte" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+                </div>
+                <div class="carte" data-paire="Myheroacademia">
+                    <img class="verso" src="./asset/Mha.png" alt="My hero academia" loading="lazy">
+                    <img class="recto noir compte" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+                </div>
+                <div class="carte" data-paire="Myheroacademia">
+                    <img class="verso" src="./asset/Mha.png" alt="My hero academia" loading="lazy">
+                    <img class="recto noir compte" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+                </div>
+                <div class="carte" data-paire="Naruto">
+                    <img class="verso" src="./asset/Naruto.png" alt="Naruto" loading="lazy">
+                    <img class="recto noir compte" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+                </div>
+                <div class="carte" data-paire="Naruto">
+                    <img class="verso" src="./asset/Naruto.png" alt="Naruto" loading="lazy">
+                    <img class="recto noir compte" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+                </div>
+                <div class="carte" data-paire="Onepiece">
+                    <img class="verso" src="./asset/One_piece.png" alt="One piece" loading="lazy">
+                    <img class="recto noir compte" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+                </div>
+                <div class="carte" data-paire="Onepiece">
+                    <img class="verso" src="./asset/One_piece.png" alt="One piece" loading="lazy">
+                    <img class="recto noir compte" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+                </div>
             </div>
-            <div class="carte" data-paire="Dgrayman">
-                <img class="verso " src="./asset/Dgm.png" alt="D.gray-man" loading="lazy">
-                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+            <!-- Popup message de victoire -->
+            <div class="ending">
+                <div class="ending-content">
+                    <h2>Bravo!!!</h2>
+                    <p>Vous avez gagner la partie!!</p>
+                    <button class="start">Rejouer</button>
+                </div>
             </div>
-            <div class="carte" data-paire="Dragonball">
-                <img class="verso" src="./asset/Dragon_ball.png" alt="Dragon ball" loading="lazy">
-                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+            <!-- Chrono -->
+            <div class="timer">
+                <p>Temps:<br><span class="time"></span></p>
             </div>
-            <div class="carte" data-paire="Demonslayer">
-                <img class="verso" src="./asset/Kny.png" alt="Demon slayer" loading="lazy">
-                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
+            <!-- Comptuer de mouvement -->
+            <div class="moves">
+                <p>Mouvements:<br><span class="click"></span></p>
             </div>
-            <div class="carte" data-paire="Magi">
-                <img class="verso" src="./asset/Magi.png" alt="Magi" loading="lazy">
-                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
-            </div>
-            <div class="carte" data-paire="Myheroacademia">
-                <img class="verso" src="./asset/Mha.png" alt="My hero academia" loading="lazy">
-                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
-            </div>
-            <div class="carte" data-paire="Naruto">
-                <img class="verso" src="./asset/Naruto.png" alt="Naruto" loading="lazy">
-                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
-            </div>
-            <div class="carte" data-paire="Onepiece">
-                <img class="verso" src="./asset/One_piece.png" alt="One piece" loading="lazy">
-                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
-            </div>
-            <div class="carte" data-paire="Onepiece">
-                <img class="verso" src="./asset/One_piece.png" alt="One piece" loading="lazy">
-                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
-            </div>
-            <div class="carte" data-paire="Naruto">
-                <img class="verso" src="./asset/Naruto.png" alt="Naruto" loading="lazy">
-                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
-            </div>
-            <div class="carte" data-paire="Myheroacademia">
-                <img class="verso" src="./asset/Mha.png" alt="My hero academia" loading="lazy">
-                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
-            </div>
-            <div class="carte" data-paire="Magi">
-                <img class="verso" src="./asset/Magi.png" alt="Magi" loading="lazy">
-                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
-            </div>
-            <div class="carte" data-paire="Demonslayer">
-                <img class="verso" src="./asset/Kny.png" alt="Demon slayer" loading="lazy">
-                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
-            </div>
-            <div class="carte" data-paire="Dragonball">
-                <img class="verso" src="./asset/Dragon_ball.png" alt="Dragon ball" loading="lazy">
-                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
-            </div>
-            <div class="carte" data-paire="Dgrayman">
-                <img class="verso" src="./asset/Dgm.png" alt="D.gray-man" loading="lazy">
-                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
-            </div>
-            <div class="carte" data-paire="Bleach">
-                <img class="verso" src="./asset/Bleach.png" alt="Bleach" loading="lazy">
-                <img class="recto noir" src="./asset/Mystery.png" alt="Mystère" loading="lazy">
-            </div>
-        </div>
-        <!-- Popup message de victoire -->
-        <div class="ending">
-            <div class="ending-content">
-                <h2>Bravo!!!</h2>
-                <p>Vous avez gagner la partie!!</p>
-                <button class="start">Rejouer</button>
-            </div>
-        </div>
-        <!-- Chrono -->
-        <div class="timer">
-            <p>Temps:<br> 0</p>
-        </div>
-        <!-- Comptuer de mouvement -->
-        <div class="moves">
-            <p>Mouvements:<br> 0</p>
-        </div>
         </section>
     </main>
     <footer>
