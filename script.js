@@ -3,8 +3,8 @@ const ENDING = document.querySelector(".ending");
 const PLAYS = document.querySelectorAll(".start");
 const CARTES = document.querySelectorAll(".carte");
 const FILTRES = document.querySelectorAll(".noir");
-const TIME = document.querySelector(".time");
-const CLICK = document.querySelector(".click");
+const TIMES = document.querySelectorAll(".time");
+const CLICKS = document.querySelectorAll(".click");
 
 /* Mise en place du chrono et du compteur de clique */
 
@@ -12,22 +12,22 @@ let temps = 0;
 let clickCount = 0;
 let timer;
 
-TIME.innerHTML = temps;
-CLICK.innerHTML = clickCount;
+TIMES.forEach((time) => time.innerHTML = temps);
+CLICKS.forEach((click) => click.innerHTML = clickCount);
 
 function timeUp() {
   temps++;
-  TIME.innerHTML = temps;
+  TIMES.forEach((time) => time.innerHTML = temps);
 }
 
 function resetChrono() {
   temps = 0;
-  TIME.innerHTML = temps;
+  TIMES.forEach((time) => time.innerHTML = temps);
 }
 
 function clickUp() {
   clickCount++;
-  CLICK.innerHTML = clickCount;
+  CLICKS.forEach((click) => click.innerHTML = clickCount);
 }
 
 /* Mise en place des pop-up d'ouverture et de fermeture du jeu */
@@ -64,7 +64,7 @@ function resetJeu() {
   carteUne = null;
   carteDeux = null;
   clickCount = 0;
-  CLICK.innerHTML = clickCount;
+  CLICKS.forEach((click) => click.innerHTML = clickCount);
   resetChrono();
   timer = setInterval(() => {
     timeUp();
