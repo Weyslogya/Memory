@@ -65,7 +65,7 @@ h1 {
 main {
     padding: 0.5rem;
     max-width: 95rem;
-    min-height: 97rem;
+    height: 97rem;
     margin: 0 auto;
     border: 0.5rem solid silver;
     border-radius: 2rem;
@@ -132,7 +132,7 @@ h2 {
     font-size: 3rem;
 }
 
-.starting{
+.starting {
     display: none;
     position: fixed;
     z-index: 1;
@@ -147,7 +147,7 @@ h2 {
     height: 15rem;
 }
 
-.starting-content{
+.starting-content {
     background-image: url(../asset/cover_popup.png);
     margin: 0 auto;
     border: 0.5rem solid silver;
@@ -156,7 +156,7 @@ h2 {
     height: 20rem;
 }
 
-.starting-content p{
+.starting-content p {
     font-size: 2rem;
     text-align: center;
     color: var(--color-main-);
@@ -165,7 +165,7 @@ h2 {
     border: 1px solid black;
 }
 
-.ending{
+.ending {
     display: none;
     position: fixed;
     z-index: 1;
@@ -180,7 +180,7 @@ h2 {
     height: 15rem;
 }
 
-.ending-content{
+.ending-content {
     background-image: url(../asset/cover_popup.png);
     margin: 0 auto;
     border: 0.5rem solid silver;
@@ -189,7 +189,7 @@ h2 {
     height: 20rem;
 }
 
-.ending-content p{
+.ending-content p {
     font-size: 2rem;
     text-align: center;
     color: var(--color-main-);
@@ -198,7 +198,7 @@ h2 {
     border: 1px solid black;
 }
 
-.timer{
+.timer {
     display: block;
     position: fixed;
     z-index: -1;
@@ -211,13 +211,13 @@ h2 {
     background-color: var(--color-header-);
 }
 
-.timer p{
+.timer p {
     font-size: 2rem;
     font-style: italic;
     text-align: center;
 }
 
-.moves{
+.moves {
     display: block;
     position: fixed;
     z-index: -1;
@@ -229,89 +229,47 @@ h2 {
     border-radius: 3rem;
     background-color: var(--color-header-);
 }
-.moves p{
+
+.moves p {
     font-size: 2rem;
     font-style: italic;
     text-align: center;
- } 
+}
 
- @media screen and (max-width:1520px){
-    .timer{
-        display: none;
+@media screen and (max-width:1440px) {
+    main {
+        margin: 4rem auto;
+        max-width: 61%;
+        height: 80rem;
     }
-    .moves{
-        display: none;
-    }
- }
 
- @media screen and (max-width: 780px) {
-    .starting{
-        display: none;
-        position: fixed;
-        z-index: 1;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-        left: -0%;
-        top: 45%;
-        right: 0;
-        bottom: 0;
-        width: 65rem;
-        height: 15rem;
+    h2 {
+        background-color: var(--color-header-);
+        text-align: center;
+        margin: 0.5rem auto;
+        font-size: 2rem;
     }
-    
-    .starting-content{
-        background-image: url(../asset/cover_popup.png);
-        margin: 0 auto;
-        border: 0.5rem solid silver;
-        border-radius: 2rem;
-        width: 35rem;
-        height: 24rem;
-    }
-    
-    .ending{
-        display: none;
-        position: fixed;
-        z-index: 1;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-        left: -0%;
-        top: 45%;
-        right: 0;
-        bottom: 0;
-        width: 65rem;
-        height: 15rem;
-    }
-    
-    .ending-content{
-        background-image: url(../asset/cover_popup.png);
-        margin: 0 auto;
-        border: 0.5rem solid silver;
-        border-radius: 2rem;
-        width: 35rem;
-        height: 24rem;
-    }
-    
- }
 
- @media screen and (max-width: 420px) {
-    .starting{
+    #Game {
+        height: 61rem;
+    }
+
+    .starting {
         display: none;
         position: fixed;
         z-index: 1;
         align-items: center;
         justify-content: center;
         margin: 0 auto;
-        left: -28%;
-        top: 45%;
+        left: 0%;
+        top: 39%;
         right: 0;
         bottom: 0;
         width: 65rem;
         height: 15rem;
     }
-    
-    .starting-content{
+
+    .starting-content {
         background-image: url(../asset/cover_popup.png);
         margin: 0 auto;
         border: 0.5rem solid silver;
@@ -319,23 +277,50 @@ h2 {
         width: 35rem;
         height: 24rem;
     }
-    
-    .ending{
+
+    .ending {
         display: none;
         position: fixed;
         z-index: 1;
         align-items: center;
         justify-content: center;
         margin: 0 auto;
-        left: -0%;
-        top: 45%;
+        left: 0%;
+        top: 39%;
         right: 0;
         bottom: 0;
         width: 65rem;
         height: 15rem;
     }
-    
-    .ending-content{
+
+    .timer {
+        display: block;
+        position: fixed;
+        z-index: -1;
+        margin: 0 auto;
+        left: 10rem;
+        top: 20rem;
+        width: 16rem;
+        height: 8rem;
+        border-radius: 3rem;
+        background-color: var(--color-header-);
+    }
+
+    .moves {
+        display: block;
+        position: fixed;
+        z-index: -1;
+        margin: 0 auto;
+        left: 10rem;
+        top: 30rem;
+        width: 16rem;
+        height: 8rem;
+        border-radius: 3rem;
+        background-color: var(--color-header-);
+    }
+
+
+    .ending-content {
         background-image: url(../asset/cover_popup.png);
         margin: 0 auto;
         border: 0.5rem solid silver;
@@ -343,5 +328,192 @@ h2 {
         width: 35rem;
         height: 24rem;
     }
-    
- }
+
+    @media screen and (max-width:1024px) {
+
+        main {
+            margin: 5rem auto;
+            max-width: 71rem;
+            height: 70rem;
+        }
+
+        #Game {
+            height: 52rem;
+        }
+
+        .timer {
+            display: block;
+            position: relative;
+            top: 0%;
+        }
+
+        .moves {
+            display: block;
+            position: relative;
+            top: -8rem;
+            left: -9rem;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        main {
+            margin: 5rem auto;
+            max-width: 71rem;
+            height: 70rem;
+        }
+
+        #Game {
+            height: 52rem;
+        }
+
+        .starting {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            left: -0%;
+            top: 38%;
+            right: 0;
+            bottom: 0;
+            width: 65rem;
+            height: 15rem;
+        }
+
+        .starting-content {
+            background-image: url(../asset/cover_popup.png);
+            margin: 0 auto;
+            border: 0.5rem solid silver;
+            border-radius: 2rem;
+            width: 35rem;
+            height: 24rem;
+        }
+
+        .ending {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            left: -0%;
+            top: 38%;
+            right: 0;
+            bottom: 0;
+            width: 65rem;
+            height: 15rem;
+        }
+
+        .ending-content {
+            background-image: url(../asset/cover_popup.png);
+            margin: 0 auto;
+            border: 0.5rem solid silver;
+            border-radius: 2rem;
+            width: 35rem;
+            height: 24rem;
+        }
+
+    }
+}
+
+@media screen and (max-width: 425px) {
+
+    main {
+        margin: 10rem auto;
+        max-width: 41rem;
+        height: 40rem;
+    }
+
+    h2 {
+        background-color: var(--color-header-);
+        text-align: center;
+        margin: 0.5rem auto;
+        font-size: 2rem;
+    }
+
+    #Game {
+        height: 27rem;
+    }
+
+    .starting {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        left: -26%;
+        top: 34%;
+        right: 0;
+        bottom: 0;
+        width: 65rem;
+        height: 15rem;
+    }
+
+    .starting-content {
+        background-image: url(../asset/cover_popup.png);
+        margin: 0 auto;
+        border: 0.5rem solid silver;
+        border-radius: 2rem;
+        width: 35rem;
+        height: 24rem;
+    }
+
+    .ending {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        left: -26%;
+        top: 34%;
+        right: 0;
+        bottom: 0;
+        width: 65rem;
+        height: 15rem;
+    }
+
+    .ending-content {
+        background-image: url(../asset/cover_popup.png);
+        margin: 0 auto;
+        border: 0.5rem solid silver;
+        border-radius: 2rem;
+        width: 35rem;
+        height: 24rem;
+    }
+
+}
+
+@media screen and (max-width: 375px) {
+    .starting {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        left: -23%;
+        top: 34%;
+        right: 0;
+        bottom: 0;
+        width: 55rem;
+        height: 15rem;
+    }
+
+    .ending {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        left: -23%;
+        top: 34%;
+        right: 0;
+        bottom: 0;
+        width: 55rem;
+        height: 15rem;
+    }
+}
