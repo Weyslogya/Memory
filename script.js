@@ -1,10 +1,16 @@
-const STARTING = document.querySelector(".starting");
-const ENDING = document.querySelector(".ending");
-const PLAYS = document.querySelectorAll(".start");
-const CARTES = document.querySelectorAll(".carte");
-const FILTRES = document.querySelectorAll(".noir");
-const TIMES = document.querySelectorAll(".time");
-const CLICKS = document.querySelectorAll(".click");
+const starting = document.querySelector(".starting");
+const ending = document.querySelector(".ending");
+const plays = document.querySelectorAll(".start");
+const cartes = document.querySelectorAll(".carte");
+const filtres = document.querySelectorAll(".noir");
+const times = document.querySelectorAll(".time");
+const clicks = document.querySelectorAll(".click");
+const easyMode = document.querySelector(".easygame");
+const MediuMode = document.querySelector(".mediumgame");
+const hardMode = document.querySelector(".hardgame");
+const easys = document.querySelectorAll(".easy");
+const mediums = document.querySelectorAll(".medium");
+const hards = document.querySelectorAll(".hard");
 
 /* Mise en place du chrono et du compteur de clique */
 
@@ -12,36 +18,109 @@ let temps = 0;
 let clickCount = 0;
 let timer;
 
-TIMES.forEach((time) => time.innerHTML = temps);
-CLICKS.forEach((click) => click.innerHTML = clickCount);
+times.forEach((time) => (time.innerHTML = temps));
+clicks.forEach((click) => (click.innerHTML = clickCount));
 
 function timeUp() {
   temps++;
-  TIMES.forEach((time) => time.innerHTML = temps);
+  times.forEach((time) => (time.innerHTML = temps));
 }
 
 function resetChrono() {
   temps = 0;
-  TIMES.forEach((time) => time.innerHTML = temps);
+  times.forEach((time) => (time.innerHTML = temps));
 }
 
 function clickUp() {
   clickCount++;
-  CLICKS.forEach((click) => click.innerHTML = clickCount);
+  clicks.forEach((click) => (click.innerHTML = clickCount));
 }
 
 /* Mise en place des pop-up d'ouverture et de fermeture du jeu */
 
 function openModal() {
   setTimeout(() => {
-    STARTING.style.display = "block";
+    starting.style.display = "block";
   }, 500);
 }
 
 function closeModal() {
   window.removeEventListener("scroll", openModal);
-  STARTING.style.display = "none";
-  ENDING.style.display = "none";
+  starting.style.display = "none";
+  ending.style.display = "none";
+}
+
+/* Mise en place des fonctions de fin du jeu */
+
+function finishGame() {
+  let finish = true;
+  for (let i = 0; i < cartes.length; i++) {
+    if (!cartes[i].classList.contains("flip")) {
+      finish = false;
+      break;
+    }
+  }
+
+  if (finish) {
+    setTimeout(() => {
+      ending.style.display = "block";
+    }, 800);
+    clearInterval(timer);
+  }
+
+  if (playEasy){
+    let easyFinish = true;
+    for (let i = 0; i < easys.length; i++){
+      if (!easys[i].classList.contains("flip")){
+        easyFinish = false;
+        break;
+      }
+    }
+
+    if (easyFinish) {
+      setTimeout(()=>{
+        ending.style.display = "block";
+      }, 800);
+    }
+    clearInterval(timer);
+    
+  }
+
+  if (playMedium){
+    let mediumFinish = true;
+    for (let i = 0; i < mediums.length; i++){
+      if (!mediums[i].classList.contains("flip")){
+        mediumFinish = false;
+        break;
+      }
+    }
+
+    if (mediumFinish) {
+      setTimeout(() => {
+        ending.style.display = "block";
+      }, 800);
+    }
+    clearInterval(timer);
+    mediumFinish = false;
+  }
+
+  if (playHard){
+    let hardFinish = true;
+    for (let i = 0; i < hards.length; i++){
+      if (!hards[i].classList.contains("flip")){
+        hardFinish = false;
+        break;
+      }
+    }
+
+    if (hardFinish) {
+      setTimeout(() => {
+        ending.style.display = "block";
+      }, 800);
+    }
+    clearInterval(timer);
+    hardFinish = false;
+  }
 }
 
 /* Mise en place des fonction pré-requis du jeux */
@@ -49,7 +128,7 @@ function closeModal() {
 let limiteCarte = false;
 
 function melange() {
-  CARTES.forEach((carte) => {
+  cartes.forEach((carte) => {
     let aleatoire = Math.floor(Math.random() * 16);
     carte.style.order = aleatoire;
   });
@@ -57,14 +136,14 @@ function melange() {
 
 function resetJeu() {
   setTimeout(() => {
-    FILTRES.forEach((filtre) => filtre.classList.remove("noir"));
+    filtres.forEach((filtre) => filtre.classList.remove("noir"));
   }, 500);
-  CARTES.forEach((carte) => carte.classList.remove("flip"));
+  cartes.forEach((carte) => carte.classList.remove("flip"));
   limiteCarte = false;
   carteUne = null;
   carteDeux = null;
   clickCount = 0;
-  CLICKS.forEach((click) => click.innerHTML = clickCount);
+  clicks.forEach((click) => (click.innerHTML = clickCount));
   resetChrono();
   timer = setInterval(() => {
     timeUp();
@@ -123,23 +202,76 @@ function game() {
         limiteCarte = false;
       }, 1500);
     }
-    let finish = true;
-
-    for (let i = 0; i < CARTES.length; i++) {
-      if (!CARTES[i].classList.contains("flip")) {
-        finish = false;
-        break;
-      }
-    }
-
-    if (finish) {
-      setTimeout(() => {
-        ENDING.style.display = "block";
-      }, 800);
-      clearInterval(timer);
-    }
+    finishGame();
   }
-  CARTES.forEach((carte) => carte.addEventListener("click", flipCarte));
+  cartes.forEach((carte) => carte.addEventListener("click", flipCarte));
 }
-PLAYS.forEach((play) => play.addEventListener("click", game));
+
+function playEasy() {
+  playEasy = true;
+  playMedium = false;
+  playHard = false;
+
+  closeModal();
+  resetJeu();
+  setTimeout(() => {
+    melange();
+  }, 0800);
+
+
+  hards.forEach((hard) => (hard.style.display = "none"));
+  hards.forEach((medium) => (medium.style.display = "none"));
+  easys.forEach((easy) => (easy.style.display = "block"));
+  easys.forEach((easy) => (easy.style.width = "calc(25% - 1rem)"));
+  easys.forEach((easy) => (easy.style.height = "calc(40% - 1rem)"));
+
+  console.log(easys.length);
+}
+
+function playMedium() {
+  playMedium = true;
+  playEasy = false;
+  playHard = false;
+
+  closeModal();
+  resetJeu();
+  setTimeout(() => {
+    melange();
+  }, 0800);
+
+
+  easys.forEach((easy) => (easy.style.display = "none"));
+  hards.forEach((hard) => (hard.style.display = "none"));
+  mediums.forEach((medium) => (medium.style.display = "block"));
+  mediums.forEach((medium) => (medium.style.width = "calc(25% - 1rem)"));
+  mediums.forEach((medium) => (medium.style.height = "calc(30% - 1rem)"));
+
+  console.log(mediums.length);
+}
+
+function playHard() {
+  playHard = true;
+  playEasy = false;
+  playMedium = false;
+
+  closeModal();
+  resetJeu();
+  setTimeout(() => {
+    melange();
+  }, 0800);
+
+
+  mediums.forEach((medium) => (medium.style.display = "none"));
+  easys.forEach((easy) => (easy.style.display = "none"));
+  hards.forEach((hard) => (hard.style.display = "block"));
+  mediums.forEach((hard) => (hard.style.width = "calc(20% - 1rem)"));
+  mediums.forEach((hard) => (hard.style.height = "calc(30% - 1rem)"));
+
+  console.log(hards.length);
+}
+
+plays.forEach((play) => play.addEventListener("click", game));
+easyMode.addEventListener("click", playEasy);
+MediuMode.addEventListener("click", playMedium);
+hardMode.addEventListener("click", playHard);
 window.addEventListener("DOMContentLoaded", openModal);

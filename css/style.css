@@ -10,7 +10,7 @@ html {
     background: url(../asset/cover_page.jpg)no-repeat fixed center center / cover;
 }
 
-Button {
+button {
     border: none;
     margin: 0;
     padding: 0;
@@ -88,14 +88,40 @@ h2 {
     margin: 0 auto;
     min-width: auto;
     height: 70rem;
-    perspective: 1000px;
+    perspective: 100rem;
 }
 
+.medium{
+    display: block;
+    margin: 0.5rem;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
 
-.carte {
-    width: calc(25% - 10px);
-    height: calc(30% - 10px);
-    margin: 5px;
+.hard{
+    display: block;
+    margin: 0.5rem;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.easy{
+    display: block;
+    width: calc(25% - 1rem);
+    height: calc(28% - 2r);
+    margin: 0.5rem;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.carte{
+    display: block;
+    width: calc(20% - 1rem);
+    height: calc(30% - 1rem);
+    margin: 0.5rem;
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
@@ -234,6 +260,45 @@ h2 {
     font-size: 2rem;
     font-style: italic;
     text-align: center;
+}
+
+.easygame{
+    display: block;
+    position: fixed;
+    margin: 0 auto;
+    right: 10rem;
+    top: 20rem;
+    width: 16rem;
+    height: 8rem;
+    border-radius: 3rem;
+    background-color: #34db0b;
+    cursor: pointer;
+}
+
+.mediumgame{
+    display: block;
+    position: fixed;
+    margin: 0 auto;
+    right: 10rem;
+    top: 30rem;
+    width: 16rem;
+    height: 8rem;
+    border-radius: 3rem;
+    background-color: #db920b;
+
+}
+
+.hardgame{
+    display: block;
+    position: fixed;
+    margin: 0 auto;
+    right: 10rem;
+    top: 40rem;
+    width: 16rem;
+    height: 8rem;
+    border-radius: 3rem;
+    background-color: #db0b0b;
+
 }
 
 @media screen and (max-width:1440px) {
