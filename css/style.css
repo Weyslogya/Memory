@@ -248,7 +248,7 @@ h2 {
     position: fixed;
     z-index: -1;
     margin: 0 auto;
-    right: 102rem;
+    left: 5rem;
     top: 30rem;
     width: 16rem;
     height: 8rem;
@@ -576,7 +576,7 @@ h2 {
     }
 
     .moves {
-        right: -20rem;
+        left: 25rem;
         top: 65rem;
         width: 10rem;
         height: 6rem;
@@ -668,6 +668,59 @@ h2 {
             top: 78rem;
             width: 10rem;
             height: 8rem;
+        }
+    }
+}
+
+@media(max-width: 760px){
+    
+    .starting-content {
+        background-image: url(../asset/cover_popup.png);
+        margin: 0 auto;
+        border: 0.5rem solid silver;
+        border-radius: 2rem;
+        width: 35rem;
+        height: 21rem;
+    }
+    
+    .ending-content {
+        background-image: url(../asset/cover_popup.png);
+        margin: 0 auto;
+        border: 0.5rem solid silver;
+        border-radius: 2rem;
+        width: 35rem;
+        height: 21rem;
+    }
+    
+    @media(max-width: 595px) {
+        .starting {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            left: -10rem;
+            top: 45%;
+            right: 0;
+            bottom: 0;
+            width: 65rem;
+            height: 15rem;
+        }
+        
+        .ending {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            left: -10rem;
+            top: 45%;
+            right: 0;
+            bottom: 0;
+            width: 65rem;
+            height: 15rem;
         }
     }
 }
