@@ -513,14 +513,14 @@ h2 {
 
         .timer {
             right: 30rem;
-            top: 65rem;
+            top: 11.5rem;
             width: 10rem;
             height: 6rem;
         }
 
         .moves {
             right: -20rem;
-            top: 65rem;
+            top: 11.5rem;
             width: 10rem;
             height: 6rem;
         }
@@ -528,7 +528,7 @@ h2 {
         .easygame {
             margin: 0 auto;
             left: 5rem;
-            top: 78rem;
+            top: 65rem;
             width: 10rem;
             height: 8rem;
         }
@@ -536,7 +536,7 @@ h2 {
         .mediumgame {
             margin: 0 auto;
             left: 18.5rem;
-            top: 78rem;
+            top: 65rem;
             width: 10rem;
             height: 8rem;
         }
@@ -544,7 +544,7 @@ h2 {
         .hardgame {
             margin: 0 auto;
             left: 31rem;
-            top: 78rem;
+            top: 65rem;
             width: 10rem;
             height: 8rem;
         }
@@ -570,14 +570,14 @@ h2 {
 
     .timer {
         left: 10rem;
-        top: 65rem;
+        top: 11.5rem;
         width: 10rem;
         height: 6rem;
     }
 
     .moves {
         left: 25rem;
-        top: 65rem;
+        top: 11.5rem;
         width: 10rem;
         height: 6rem;
     }
@@ -585,7 +585,7 @@ h2 {
     .easygame {
         margin: 0 auto;
         right: 29rem;
-        top: 78rem;
+        top: 65rem;
         width: 10rem;
         height: 8rem;
     }
@@ -593,7 +593,7 @@ h2 {
     .mediumgame {
         margin: 0 auto;
         right: 16rem;
-        top: 78rem;
+        top: 65rem;
         width: 10rem;
         height: 8rem;
     }
@@ -601,7 +601,7 @@ h2 {
     .hardgame {
         margin: 0 auto;
         right: 3rem;
-        top: 78rem;
+        top: 65rem;
         width: 10rem;
         height: 8rem;
     }
@@ -625,7 +625,7 @@ h2 {
 
         .timer {
             left: 4rem;
-            top: 65rem;
+            top: 11.5rem;
             width: 10rem;
             height: 6rem;
         }
@@ -636,7 +636,7 @@ h2 {
 
         .moves {
             right: 4rem;
-            top: 65rem;
+            top: 11.5rem;
             width: 10rem;
             height: 6rem;
         }
@@ -649,7 +649,7 @@ h2 {
         .easygame {
             margin: 0 auto;
             right: 25rem;
-            top: 78rem;
+            top: 65rem;
             width: 10rem;
             height: 8rem;
         }
@@ -657,7 +657,7 @@ h2 {
         .mediumgame {
             margin: 0 auto;
             right: 14rem;
-            top: 78rem;
+            top: 65rem;
             width: 10rem;
             height: 8rem;
         }
@@ -665,7 +665,7 @@ h2 {
         .hardgame {
             margin: 0 auto;
             right: 3rem;
-            top: 78rem;
+            top: 65rem;
             width: 10rem;
             height: 8rem;
         }
