@@ -11,6 +11,7 @@ const hardMode = document.querySelector(".hardgame");
 const easys = document.querySelectorAll(".easy");
 const mediums = document.querySelectorAll(".medium");
 const hards = document.querySelectorAll(".hard");
+let level = "";
 
 /* Mise en place du chrono et du compteur de clique */
 
@@ -60,7 +61,6 @@ function finishGame() {
       break;
     }
   }
-
   if (finish) {
     setTimeout(() => {
       ending.style.display = "block";
@@ -68,63 +68,55 @@ function finishGame() {
     clearInterval(timer);
   }
 
-  if (playEasy){
+  if (playEasy && level === "easy") {
     let easyFinish = true;
-    for (let i = 0; i < easys.length; i++){
-      if (!easys[i].classList.contains("flip")){
+    for (let i = 0; i < easys.length; i++) {
+      if (!easys[i].classList.contains("flip")) {
         easyFinish = false;
         break;
       }
     }
-
     if (easyFinish) {
-      setTimeout(()=>{
+      setTimeout(() => {
         ending.style.display = "block";
       }, 800);
     }
-    clearInterval(timer);
-    
   }
 
-  if (playMedium){
+  if (playMedium && level === "medium") {
     let mediumFinish = true;
-    for (let i = 0; i < mediums.length; i++){
-      if (!mediums[i].classList.contains("flip")){
+    for (let i = 0; i < mediums.length; i++) {
+      if (!mediums[i].classList.contains("flip")) {
         mediumFinish = false;
         break;
       }
     }
-
     if (mediumFinish) {
       setTimeout(() => {
         ending.style.display = "block";
       }, 800);
     }
-    clearInterval(timer);
-    mediumFinish = false;
   }
 
-  if (playHard){
+  if (playHard && level === "hard") {
     let hardFinish = true;
-    for (let i = 0; i < hards.length; i++){
-      if (!hards[i].classList.contains("flip")){
+    for (let i = 0; i < hards.length; i++) {
+      if (!hards[i].classList.contains("flip")) {
         hardFinish = false;
         break;
       }
     }
-
     if (hardFinish) {
       setTimeout(() => {
         ending.style.display = "block";
       }, 800);
     }
-    clearInterval(timer);
-    hardFinish = false;
   }
 }
 
 /* Mise en place des fonction pré-requis du jeux */
 
+let carteUne, carteDeux;
 let limiteCarte = false;
 
 function melange() {
@@ -134,14 +126,19 @@ function melange() {
   });
 }
 
+function resetNiveau(){
+  cartes.forEach((carte) => carte.addEventListener("click", flipCarte));
+}
+
 function resetJeu() {
+  clearInterval(timer);
+  resetNiveau();
   setTimeout(() => {
     filtres.forEach((filtre) => filtre.classList.remove("noir"));
-  }, 500);
+  }, 400);
   cartes.forEach((carte) => carte.classList.remove("flip"));
   limiteCarte = false;
-  carteUne = null;
-  carteDeux = null;
+  resetCarte();
   clickCount = 0;
   clicks.forEach((click) => (click.innerHTML = clickCount));
   resetChrono();
@@ -157,57 +154,62 @@ function game() {
   resetJeu();
   setTimeout(() => {
     melange();
-  }, 0800);
+  }, 400);
 
-  let carteUne, carteDeux;
-  limiteCarte = false;
+  activeCards(cartes);
+}
 
-  function resetCarte() {
-    if (carteDeux) {
-      carteUne = undefined;
-      carteDeux = undefined;
-    }
+function resetCarte() {
+  if (carteDeux) {
+    carteUne = undefined;
+    carteDeux = undefined;
   }
+}
 
-  function flipCarte(event) {
-    if (limiteCarte) {
-      return;
-    }
-
-    const carte = event.target.closest(".carte");
-    carte.removeEventListener("click", flipCarte);
-    carte.classList.add("flip");
-
-    if (carteUne) {
-      carteDeux = carte;
-      matching();
-    } else {
-      carteUne = carte;
-    }
-
-    clickUp();
-  }
-
-  function matching() {
-    if (carteUne.dataset.paire === carteDeux.dataset.paire) {
+function matching() {
+  if (carteUne.dataset.paire === carteDeux.dataset.paire) {
+    resetCarte(carteUne, carteDeux);
+  } else {
+    limiteCarte = true;
+    setTimeout(() => {
+      carteUne.addEventListener("click", flipCarte);
+      carteDeux.addEventListener("click", flipCarte);
+      carteUne.classList.remove("flip");
+      carteDeux.classList.remove("flip");
       resetCarte();
-    } else {
-      limiteCarte = true;
-      setTimeout(() => {
-        carteUne.addEventListener("click", flipCarte);
-        carteDeux.addEventListener("click", flipCarte);
-        carteUne.classList.remove("flip");
-        carteDeux.classList.remove("flip");
-        resetCarte();
-        limiteCarte = false;
-      }, 1500);
-    }
-    finishGame();
+      limiteCarte = false;
+    }, 1500);
   }
-  cartes.forEach((carte) => carte.addEventListener("click", flipCarte));
+  finishGame();
+}
+
+function flipCarte(event) {
+  if (limiteCarte) {
+    return;
+  }
+
+  const carte = event.target.closest(".carte");
+  carte.removeEventListener("click", flipCarte);
+  carte.classList.add("flip");
+
+  if (carteUne) {
+    carteDeux = carte;
+    matching(carteUne, carteDeux);
+  } else {
+    carteUne = carte;
+  }
+
+  clickUp();
+}
+
+function activeCards(cards) {
+  cards.forEach((carte) => carte.addEventListener("click", flipCarte));
+
 }
 
 function playEasy() {
+level = "easy";
+
   playEasy = true;
   playMedium = false;
   playHard = false;
@@ -217,7 +219,6 @@ function playEasy() {
   setTimeout(() => {
     melange();
   }, 0800);
-
 
   hards.forEach((hard) => (hard.style.display = "none"));
   hards.forEach((medium) => (medium.style.display = "none"));
@@ -229,6 +230,8 @@ function playEasy() {
 }
 
 function playMedium() {
+level= "medium";
+
   playMedium = true;
   playEasy = false;
   playHard = false;
@@ -238,7 +241,6 @@ function playMedium() {
   setTimeout(() => {
     melange();
   }, 0800);
-
 
   easys.forEach((easy) => (easy.style.display = "none"));
   hards.forEach((hard) => (hard.style.display = "none"));
@@ -250,6 +252,8 @@ function playMedium() {
 }
 
 function playHard() {
+  level= "hard";
+
   playHard = true;
   playEasy = false;
   playMedium = false;
@@ -260,12 +264,11 @@ function playHard() {
     melange();
   }, 0800);
 
-
   mediums.forEach((medium) => (medium.style.display = "none"));
   easys.forEach((easy) => (easy.style.display = "none"));
   hards.forEach((hard) => (hard.style.display = "block"));
-  mediums.forEach((hard) => (hard.style.width = "calc(20% - 1rem)"));
-  mediums.forEach((hard) => (hard.style.height = "calc(30% - 1rem)"));
+  hards.forEach((hard) => (hard.style.width = "calc(20% - 1rem)"));
+  hards.forEach((hard) => (hard.style.height = "calc(30% - 1rem)"));
 
   console.log(hards.length);
 }

@@ -91,7 +91,7 @@ h2 {
     perspective: 100rem;
 }
 
-.medium{
+.medium {
     display: block;
     margin: 0.5rem;
     position: relative;
@@ -99,7 +99,7 @@ h2 {
     transform-style: preserve-3d;
 }
 
-.hard{
+.hard {
     display: block;
     margin: 0.5rem;
     position: relative;
@@ -107,17 +107,17 @@ h2 {
     transform-style: preserve-3d;
 }
 
-.easy{
+.easy {
     display: block;
     width: calc(25% - 1rem);
-    height: calc(28% - 2r);
+    height: calc(28% - 2rem);
     margin: 0.5rem;
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
 
-.carte{
+.carte {
     display: block;
     width: calc(20% - 1rem);
     height: calc(30% - 1rem);
@@ -229,7 +229,7 @@ h2 {
     position: fixed;
     z-index: -1;
     margin: 0 auto;
-    left: 10rem;
+    left: 5rem;
     top: 20rem;
     width: 16rem;
     height: 8rem;
@@ -248,7 +248,7 @@ h2 {
     position: fixed;
     z-index: -1;
     margin: 0 auto;
-    left: 10rem;
+    right: 102rem;
     top: 30rem;
     width: 16rem;
     height: 8rem;
@@ -262,11 +262,11 @@ h2 {
     text-align: center;
 }
 
-.easygame{
+.easygame {
     display: block;
     position: fixed;
     margin: 0 auto;
-    right: 10rem;
+    right: 5rem;
     top: 20rem;
     width: 16rem;
     height: 8rem;
@@ -275,11 +275,11 @@ h2 {
     cursor: pointer;
 }
 
-.mediumgame{
+.mediumgame {
     display: block;
     position: fixed;
     margin: 0 auto;
-    right: 10rem;
+    right: 5rem;
     top: 30rem;
     width: 16rem;
     height: 8rem;
@@ -288,11 +288,11 @@ h2 {
 
 }
 
-.hardgame{
+.hardgame {
     display: block;
     position: fixed;
     margin: 0 auto;
-    right: 10rem;
+    right: 5rem;
     top: 40rem;
     width: 16rem;
     height: 8rem;
@@ -301,11 +301,12 @@ h2 {
 
 }
 
-@media screen and (max-width:1440px) {
+@media(min-width: 768px) and (max-width: 1388px) {
     main {
         margin: 4rem auto;
+        margin-top: 8rem;
         max-width: 61%;
-        height: 80rem;
+        height: 68rem;
     }
 
     h2 {
@@ -316,22 +317,7 @@ h2 {
     }
 
     #Game {
-        height: 61rem;
-    }
-
-    .starting {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-        left: 0%;
-        top: 39%;
-        right: 0;
-        bottom: 0;
-        width: 65rem;
-        height: 15rem;
+        height: 51rem;
     }
 
     .starting-content {
@@ -339,23 +325,17 @@ h2 {
         margin: 0 auto;
         border: 0.5rem solid silver;
         border-radius: 2rem;
-        width: 35rem;
-        height: 24rem;
+        width: 70rem;
+        height: 20rem;
     }
 
-    .ending {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        align-items: center;
-        justify-content: center;
+    .ending-content {
+        background-image: url(../asset/cover_popup.png);
         margin: 0 auto;
-        left: 0%;
-        top: 39%;
-        right: 0;
-        bottom: 0;
-        width: 65rem;
-        height: 15rem;
+        border: 0.5rem solid silver;
+        border-radius: 2rem;
+        width: 70rem;
+        height: 20rem;
     }
 
     .timer {
@@ -363,12 +343,17 @@ h2 {
         position: fixed;
         z-index: -1;
         margin: 0 auto;
-        left: 10rem;
+        left: 2rem;
         top: 20rem;
-        width: 16rem;
+        width: 12rem;
         height: 8rem;
         border-radius: 3rem;
         background-color: var(--color-header-);
+    }
+
+    .timer p {
+        font-size: 1.8rem;
+        margin: 1rem auto;
     }
 
     .moves {
@@ -376,118 +361,78 @@ h2 {
         position: fixed;
         z-index: -1;
         margin: 0 auto;
-        left: 10rem;
+        left: 2rem;
         top: 30rem;
-        width: 16rem;
+        width: 12rem;
         height: 8rem;
         border-radius: 3rem;
         background-color: var(--color-header-);
     }
 
+    .moves p {
+        font-size: 1.8rem;
+        margin: 1rem auto;
+    }
 
-    .ending-content {
-        background-image: url(../asset/cover_popup.png);
+    .easygame {
+        display: block;
+        position: fixed;
         margin: 0 auto;
-        border: 0.5rem solid silver;
-        border-radius: 2rem;
-        width: 35rem;
-        height: 24rem;
+        right: 2rem;
+        top: 20rem;
+        width: 12rem;
+        height: 8rem;
+        border-radius: 3rem;
+        background-color: #34db0b;
+        cursor: pointer;
     }
 
-    @media screen and (max-width:1024px) {
+    .mediumgame {
+        display: block;
+        position: fixed;
+        margin: 0 auto;
+        right: 2rem;
+        top: 30rem;
+        width: 12rem;
+        height: 8rem;
+        border-radius: 3rem;
+        background-color: #db920b;
+    }
 
+    .hardgame {
+        display: block;
+        position: fixed;
+        margin: 0 auto;
+        right: 2rem;
+        top: 40rem;
+        width: 12rem;
+        height: 8rem;
+        border-radius: 3rem;
+        background-color: #db0b0b;
+    }
+
+    @media(max-width: 950px) {
         main {
-            margin: 5rem auto;
-            max-width: 71rem;
-            height: 70rem;
+            margin: 4rem auto;
+            margin-top: 8rem;
+            max-width: 61%;
+            height: 57rem;
         }
 
         #Game {
-            height: 52rem;
-        }
-
-        .timer {
-            display: block;
-            position: relative;
-            top: 0%;
-        }
-
-        .moves {
-            display: block;
-            position: relative;
-            top: -8rem;
-            left: -9rem;
+            height: 41rem;
         }
     }
 
-    @media screen and (max-width: 768px) {
-        main {
-            margin: 5rem auto;
-            max-width: 71rem;
-            height: 70rem;
-        }
-
-        #Game {
-            height: 52rem;
-        }
-
-        .starting {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            left: -0%;
-            top: 38%;
-            right: 0;
-            bottom: 0;
-            width: 65rem;
-            height: 15rem;
-        }
-
-        .starting-content {
-            background-image: url(../asset/cover_popup.png);
-            margin: 0 auto;
-            border: 0.5rem solid silver;
-            border-radius: 2rem;
-            width: 35rem;
-            height: 24rem;
-        }
-
-        .ending {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            left: -0%;
-            top: 38%;
-            right: 0;
-            bottom: 0;
-            width: 65rem;
-            height: 15rem;
-        }
-
-        .ending-content {
-            background-image: url(../asset/cover_popup.png);
-            margin: 0 auto;
-            border: 0.5rem solid silver;
-            border-radius: 2rem;
-            width: 35rem;
-            height: 24rem;
-        }
-
-    }
 }
 
-@media screen and (max-width: 425px) {
+@media(min-width: 426px) and (max-width: 767px) {
 
     main {
-        margin: 10rem auto;
-        max-width: 41rem;
-        height: 40rem;
+        margin: 4rem auto;
+        margin-top: 8rem;
+        height: 56rem;
+        width: 64rem;
     }
 
     h2 {
@@ -498,87 +443,231 @@ h2 {
     }
 
     #Game {
-        height: 27rem;
+        height: 41rem;
     }
 
-    .starting {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        align-items: center;
-        justify-content: center;
+    .timer {
+        left: 5rem;
+        top: 75rem;
+        width: 10rem;
+        height: 6rem;
+    }
+
+    .timer p {
+        margin: 1rem auto;
+        font-size: 1.5rem;
+    }
+
+    .moves {
+        left: 5rem;
+        top: 82rem;
+        width: 10rem;
+        height: 6rem;
+    }
+
+    .moves p {
+        margin: 1rem auto;
+        font-size: 1.5rem;
+    }
+
+    .easygame {
         margin: 0 auto;
-        left: -26%;
-        top: 34%;
-        right: 0;
-        bottom: 0;
-        width: 65rem;
-        height: 15rem;
+        right: 33rem;
+        top: 78rem;
+        width: 14rem;
+        height: 8rem;
     }
 
-    .starting-content {
-        background-image: url(../asset/cover_popup.png);
+    .mediumgame {
         margin: 0 auto;
-        border: 0.5rem solid silver;
-        border-radius: 2rem;
-        width: 35rem;
-        height: 24rem;
+        right: 17rem;
+        top: 78rem;
+        width: 14rem;
+        height: 8rem;
     }
 
-    .ending {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        align-items: center;
-        justify-content: center;
+    .hardgame {
         margin: 0 auto;
-        left: -26%;
-        top: 34%;
-        right: 0;
-        bottom: 0;
-        width: 65rem;
-        height: 15rem;
+        right: 1rem;
+        top: 78rem;
+        width: 14rem;
+        height: 8rem;
     }
 
-    .ending-content {
-        background-image: url(../asset/cover_popup.png);
-        margin: 0 auto;
-        border: 0.5rem solid silver;
-        border-radius: 2rem;
-        width: 35rem;
-        height: 24rem;
-    }
+    @media(max-width: 635px) {
+        main {
+            margin: 4rem auto;
+            margin-top: 8rem;
+            height: 44rem;
+            width: 39rem;
+        }
 
+        h2 {
+            font-size: 1.5rem;
+            width: 100%;
+        }
+
+        #Game {
+            height: 32rem;
+        }
+
+        .timer {
+            right: 30rem;
+            top: 65rem;
+            width: 10rem;
+            height: 6rem;
+        }
+
+        .moves {
+            right: -20rem;
+            top: 65rem;
+            width: 10rem;
+            height: 6rem;
+        }
+
+        .easygame {
+            margin: 0 auto;
+            left: 5rem;
+            top: 78rem;
+            width: 10rem;
+            height: 8rem;
+        }
+
+        .mediumgame {
+            margin: 0 auto;
+            left: 18.5rem;
+            top: 78rem;
+            width: 10rem;
+            height: 8rem;
+        }
+
+        .hardgame {
+            margin: 0 auto;
+            left: 31rem;
+            top: 78rem;
+            width: 10rem;
+            height: 8rem;
+        }
+    }
 }
 
-@media screen and (max-width: 375px) {
-    .starting {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-        left: -23%;
-        top: 34%;
-        right: 0;
-        bottom: 0;
-        width: 55rem;
-        height: 15rem;
+@media(max-width: 425px) {
+    main {
+        margin: 4rem auto;
+        margin-top: 8rem;
+        height: 44rem;
+        width: 39rem;
     }
 
-    .ending {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        align-items: center;
-        justify-content: center;
+    h2 {
+        font-size: 1.5rem;
+        width: 100%;
+    }
+
+    #Game {
+        height: 32rem;
+    }
+
+    .timer {
+        left: 10rem;
+        top: 65rem;
+        width: 10rem;
+        height: 6rem;
+    }
+
+    .moves {
+        right: -20rem;
+        top: 65rem;
+        width: 10rem;
+        height: 6rem;
+    }
+
+    .easygame {
         margin: 0 auto;
-        left: -23%;
-        top: 34%;
-        right: 0;
-        bottom: 0;
-        width: 55rem;
-        height: 15rem;
+        right: 29rem;
+        top: 78rem;
+        width: 10rem;
+        height: 8rem;
+    }
+
+    .mediumgame {
+        margin: 0 auto;
+        right: 16rem;
+        top: 78rem;
+        width: 10rem;
+        height: 8rem;
+    }
+
+    .hardgame {
+        margin: 0 auto;
+        right: 3rem;
+        top: 78rem;
+        width: 10rem;
+        height: 8rem;
+    }
+
+    @media(max-width: 425px) {
+        main {
+            margin: 4rem auto;
+            margin-top: 8rem;
+            height: 40rem;
+            width: 35rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            width: 100%;
+        }
+
+        #Game {
+            height: 28rem;
+        }
+
+        .timer {
+            left: 4rem;
+            top: 65rem;
+            width: 10rem;
+            height: 6rem;
+        }
+
+        .timer p{
+            font-size: 1.8rem;
+        }
+
+        .moves {
+            right: 4rem;
+            top: 65rem;
+            width: 10rem;
+            height: 6rem;
+        }
+
+        .moves p {
+            margin: 1rem auto;
+            font-size: 1.6rem;
+        }
+
+        .easygame {
+            margin: 0 auto;
+            right: 25rem;
+            top: 78rem;
+            width: 10rem;
+            height: 8rem;
+        }
+
+        .mediumgame {
+            margin: 0 auto;
+            right: 14rem;
+            top: 78rem;
+            width: 10rem;
+            height: 8rem;
+        }
+
+        .hardgame {
+            margin: 0 auto;
+            right: 3rem;
+            top: 78rem;
+            width: 10rem;
+            height: 8rem;
+        }
     }
 }
