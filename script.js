@@ -52,8 +52,7 @@ function closeModal() {
 }
 
 /* Mise en place des fonctions de fin du jeu */
-
-function finishGame() {
+function basicEnd() {
   let finish = true;
   for (let i = 0; i < cartes.length; i++) {
     if (!cartes[i].classList.contains("flip")) {
@@ -67,8 +66,10 @@ function finishGame() {
     }, 800);
     clearInterval(timer);
   }
+}
 
-  if (playEasy && level === "easy") {
+function easyEnd() {
+  if (level === "easy") {
     let easyFinish = true;
     for (let i = 0; i < easys.length; i++) {
       if (!easys[i].classList.contains("flip")) {
@@ -82,8 +83,10 @@ function finishGame() {
       }, 800);
     }
   }
+}
 
-  if (playMedium && level === "medium") {
+function mediumEnd() {
+  if (level === "medium") {
     let mediumFinish = true;
     for (let i = 0; i < mediums.length; i++) {
       if (!mediums[i].classList.contains("flip")) {
@@ -97,8 +100,10 @@ function finishGame() {
       }, 800);
     }
   }
+}
 
-  if (playHard && level === "hard") {
+function hardEnd() {
+  if (level === "hard") {
     let hardFinish = true;
     for (let i = 0; i < hards.length; i++) {
       if (!hards[i].classList.contains("flip")) {
@@ -114,6 +119,17 @@ function finishGame() {
   }
 }
 
+function finishGame() {
+  basicEnd();
+  if (level === "easy") {
+    easyEnd();
+  } else if (level === "medium") {
+    mediumEnd();
+  } else if (level === "hard") {
+    hardEnd();
+  }
+}
+
 /* Mise en place des fonction pré-requis du jeux */
 
 let carteUne, carteDeux;
@@ -126,11 +142,11 @@ function melange() {
   });
 }
 
-function resetNiveau(){
+function resetNiveau() {
   cartes.forEach((carte) => carte.addEventListener("click", flipCarte));
 }
 
-function resetJeu() {
+function resetConfig() {
   clearInterval(timer);
   resetNiveau();
   setTimeout(() => {
@@ -147,14 +163,18 @@ function resetJeu() {
   }, 1000);
 }
 
+function resetGame() {
+  closeModal();
+  resetConfig();
+  setTimeout(() => {
+    melange();
+  }, 600);
+}
+
 /* Fonction du jeu */
 
 function game() {
-  closeModal();
-  resetJeu();
-  setTimeout(() => {
-    melange();
-  }, 400);
+  resetGame();
 
   activeCards(cartes);
 }
@@ -165,7 +185,6 @@ function resetCarte() {
     carteDeux = undefined;
   }
 }
-
 function matching() {
   if (carteUne.dataset.paire === carteDeux.dataset.paire) {
     resetCarte(carteUne, carteDeux);
@@ -187,90 +206,76 @@ function flipCarte(event) {
   if (limiteCarte) {
     return;
   }
-
   const carte = event.target.closest(".carte");
   carte.removeEventListener("click", flipCarte);
   carte.classList.add("flip");
-
   if (carteUne) {
     carteDeux = carte;
     matching(carteUne, carteDeux);
   } else {
     carteUne = carte;
   }
-
   clickUp();
 }
 
 function activeCards(cards) {
   cards.forEach((carte) => carte.addEventListener("click", flipCarte));
-
 }
 
-function playEasy() {
-level = "easy";
 
+/* Configuration des niveaux*/
+function easyModeConfig() {
   playEasy = true;
   playMedium = false;
   playHard = false;
-
-  closeModal();
-  resetJeu();
-  setTimeout(() => {
-    melange();
-  }, 0800);
-
   hards.forEach((hard) => (hard.style.display = "none"));
   hards.forEach((medium) => (medium.style.display = "none"));
   easys.forEach((easy) => (easy.style.display = "block"));
   easys.forEach((easy) => (easy.style.width = "calc(25% - 1rem)"));
   easys.forEach((easy) => (easy.style.height = "calc(40% - 1rem)"));
-
-  console.log(easys.length);
 }
 
-function playMedium() {
-level= "medium";
-
+function mediumModeConfig() {
   playMedium = true;
   playEasy = false;
   playHard = false;
-
-  closeModal();
-  resetJeu();
-  setTimeout(() => {
-    melange();
-  }, 0800);
-
   easys.forEach((easy) => (easy.style.display = "none"));
   hards.forEach((hard) => (hard.style.display = "none"));
   mediums.forEach((medium) => (medium.style.display = "block"));
   mediums.forEach((medium) => (medium.style.width = "calc(25% - 1rem)"));
   mediums.forEach((medium) => (medium.style.height = "calc(30% - 1rem)"));
-
-  console.log(mediums.length);
 }
 
-function playHard() {
-  level= "hard";
-
+function hardModeConfig() {
   playHard = true;
   playEasy = false;
   playMedium = false;
-
-  closeModal();
-  resetJeu();
-  setTimeout(() => {
-    melange();
-  }, 0800);
-
   mediums.forEach((medium) => (medium.style.display = "none"));
   easys.forEach((easy) => (easy.style.display = "none"));
   hards.forEach((hard) => (hard.style.display = "block"));
   hards.forEach((hard) => (hard.style.width = "calc(20% - 1rem)"));
   hards.forEach((hard) => (hard.style.height = "calc(30% - 1rem)"));
+}
 
-  console.log(hards.length);
+function playEasy() {
+  level = "easy";
+
+  resetGame();
+  easyModeConfig();
+}
+
+function playMedium() {
+  level = "medium";
+
+  resetGame();
+  mediumModeConfig();
+}
+
+function playHard() {
+  level = "hard";
+
+  resetGame();
+  hardModeConfig();
 }
 
 plays.forEach((play) => play.addEventListener("click", game));

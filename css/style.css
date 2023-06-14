@@ -36,6 +36,10 @@ img {
     cursor: pointer;
 }
 
+p{
+    color: #ffffff;
+}
+
 /*Thème */
 
 :root {
@@ -265,39 +269,45 @@ h2 {
 .easygame {
     display: block;
     position: fixed;
+    font-style: italic;
+    color: #ffffff;
     margin: 0 auto;
     right: 5rem;
     top: 20rem;
     width: 16rem;
     height: 8rem;
     border-radius: 3rem;
-    background-color: #34db0b;
+    background-color: #acbfd4;
     cursor: pointer;
 }
 
 .mediumgame {
     display: block;
     position: fixed;
+    font-style: italic;
+    color: #ffffff;
     margin: 0 auto;
     right: 5rem;
     top: 30rem;
     width: 16rem;
     height: 8rem;
     border-radius: 3rem;
-    background-color: #db920b;
+    background-color: var(--color-header-);
 
 }
 
 .hardgame {
     display: block;
     position: fixed;
+    font-style: italic;
+    color: #ffffff;
     margin: 0 auto;
     right: 5rem;
     top: 40rem;
     width: 16rem;
     height: 8rem;
     border-radius: 3rem;
-    background-color: #db0b0b;
+    background-color: #2a7fe0;
 
 }
 
@@ -383,7 +393,6 @@ h2 {
         width: 12rem;
         height: 8rem;
         border-radius: 3rem;
-        background-color: #34db0b;
         cursor: pointer;
     }
 
@@ -396,7 +405,6 @@ h2 {
         width: 12rem;
         height: 8rem;
         border-radius: 3rem;
-        background-color: #db920b;
     }
 
     .hardgame {
@@ -408,7 +416,6 @@ h2 {
         width: 12rem;
         height: 8rem;
         border-radius: 3rem;
-        background-color: #db0b0b;
     }
 
     @media(max-width: 950px) {
