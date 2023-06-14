@@ -6,7 +6,7 @@ const filtres = document.querySelectorAll(".noir");
 const times = document.querySelectorAll(".time");
 const clicks = document.querySelectorAll(".click");
 const easyMode = document.querySelector(".easygame");
-const MediuMode = document.querySelector(".mediumgame");
+const mediuMode = document.querySelector(".mediumgame");
 const hardMode = document.querySelector(".hardgame");
 const easys = document.querySelectorAll(".easy");
 const mediums = document.querySelectorAll(".medium");
@@ -280,6 +280,42 @@ function playHard() {
 
 plays.forEach((play) => play.addEventListener("click", game));
 easyMode.addEventListener("click", playEasy);
-MediuMode.addEventListener("click", playMedium);
+mediuMode.addEventListener("click", playMedium);
 hardMode.addEventListener("click", playHard);
 window.addEventListener("DOMContentLoaded", openModal);
+
+module.exports = {
+  starting,
+  ending,
+  plays,
+  cartes,
+  filtres,
+  times,
+  clicks,
+  easyMode,
+  mediuMode,
+  hardMode,
+  easys,
+  mediums,
+  hards,
+  timeUp,
+  resetChrono,
+  clickUp,
+  openModal,
+  closeModal,
+  basicEnd,
+  easyEnd,
+  mediumEnd,
+  hardEnd,
+  melange,
+  resetNiveau,
+  resetCarte,
+  flipCarte,
+  activeCards,
+  easyModeConfig,
+  mediumModeConfig,
+  hardModeConfig,
+  playEasy,
+  playMedium,
+  playHard
+ }

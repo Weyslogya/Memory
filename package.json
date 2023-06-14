@@ -19,6 +19,10 @@
   },
   "homepage": "https://github.com/Weyslogya/Memory#readme",
   "devDependencies": {
-    "jest": "^29.5.0"
+    "@types/jsdom": "^21.1.1",
+    "jest": "^27.5.1",
+    "jest-environment-jsdom": "^27.5.1",
+    "jsdom": "^22.1.0",
+    "jsdom-global": "^3.0.2"
   }
 }
