@@ -81,6 +81,7 @@ function easyEnd() {
       setTimeout(() => {
         ending.style.display = "block";
       }, 800);
+      clearInterval(timer);
     }
   }
 }
@@ -98,6 +99,7 @@ function mediumEnd() {
       setTimeout(() => {
         ending.style.display = "block";
       }, 800);
+      clearInterval(timer);
     }
   }
 }
@@ -115,6 +117,7 @@ function hardEnd() {
       setTimeout(() => {
         ending.style.display = "block";
       }, 800);
+      clearInterval(timer);
     }
   }
 }
@@ -180,10 +183,8 @@ function game() {
 }
 
 function resetCarte() {
-  if (carteDeux) {
-    carteUne = undefined;
-    carteDeux = undefined;
-  }
+  carteUne = undefined;
+  carteDeux = undefined;
 }
 function matching() {
   if (carteUne.dataset.paire === carteDeux.dataset.paire) {
@@ -221,7 +222,6 @@ function flipCarte(event) {
 function activeCards(cards) {
   cards.forEach((carte) => carte.addEventListener("click", flipCarte));
 }
-
 
 /* Configuration des niveaux*/
 function easyModeConfig() {
@@ -279,9 +279,11 @@ function playHard() {
 }
 
 plays.forEach((play) => play.addEventListener("click", game));
-easyMode.addEventListener("click", playEasy);
-mediuMode.addEventListener("click", playMedium);
-hardMode.addEventListener("click", playHard);
+window.addEventListener("DOMContentLoaded", () => {
+  easyMode.addEventListener("click", playEasy);
+  mediuMode.addEventListener("click", playMedium);
+  hardMode.addEventListener("click", playHard);
+});
 window.addEventListener("DOMContentLoaded", openModal);
 
 module.exports = {
@@ -295,9 +297,13 @@ module.exports = {
   easyMode,
   mediuMode,
   hardMode,
+  level,
   easys,
   mediums,
   hards,
+  temps,
+  clickCount,
+  timer,
   timeUp,
   resetChrono,
   clickUp,
@@ -317,5 +323,5 @@ module.exports = {
   hardModeConfig,
   playEasy,
   playMedium,
-  playHard
- }
+  playHard,
+};

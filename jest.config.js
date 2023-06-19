@@ -1,12 +1,6 @@
-module.exports = {
-  testMatch: ["**/__tests__/**/*.js", "**/?(*.)+(spec|test).js"],
-
-  testPathIgnorePatterns: ["/node_modules/"],
-
-  transform: {
-    "^.+\\.js$": "babel-jest",
-  },
-
-  coverageDirectory: "coverage",
-  testEnvironment: "jsdom",
+const config = {
+    verbose: true,
+    testEnvironment: 'jsdom',
 };
+
+module.exports = config;
